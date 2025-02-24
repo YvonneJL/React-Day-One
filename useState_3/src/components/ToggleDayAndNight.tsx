@@ -70,49 +70,24 @@ export default function ToggleDayAndNight() {
 
     //Style und Inhalt bestimmen mit ? : abhängig von boolean
     //wenn ich mit Klassen gearbeitet hätte, wäre das schneller gegangen
-    const styleDiv = toggleDayAndNight
-    ? {
-        backgroundColor: "white",
-        width: "100vw",
-        height: "100vh"
-    }
-    : {
-        backgroundColor: "black",
-        width: "100vw",
-        height: "100vh"
-    }
+    const styleDiv = toggleDayAndNight ? 'bg-white w-screen h-screen' : 'bg-black w-screen h-screen' 
 
-    const styleHeadline = toggleDayAndNight
-    ? {
-        color: "black"
-    }
-    : {
-        color: "white"
-    }
+    const styleHeadline = toggleDayAndNight ? "text-black" : "text-white"
 
-    const styleButton = toggleDayAndNight
-    ? {
-        color: "black",
-        backgroundColor: "white",
-        border: "solid 1px black"
-    }
-    : {
-        color: "white",
-        backgroundColor: "black",
-        border: "solid 1px white"
-    }
+    const styleButton = toggleDayAndNight ? "text-black bg-white border border-black" : "text-white bg-black border border-white"
 
     const headline = toggleDayAndNight ? "Day" : "Night";
+    
     const button = toggleDayAndNight ? "Night" : "Day";
 
 
   return (
     //hier oben definierte Variablen übergeben
     <>
-      <div style={styleDiv}>
-        <h1 style={styleHeadline}>{headline}</h1>
+      <div className={styleDiv}>
+        <h1 className={styleHeadline}>{headline}</h1>
         {/* hier wird beim Klicken der boolean Wert mit Hilfe einer anonymen Funktion immer weiter verändert */}
-        <button style={styleButton} onClick={()=>setToggleDayAndNight(! toggleDayAndNight)}>
+        <button className={styleButton} onClick={()=>setToggleDayAndNight(! toggleDayAndNight)}>
           Change to {button}
         </button>
       </div>
